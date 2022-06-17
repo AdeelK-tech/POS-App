@@ -27,10 +27,6 @@ app.post("/items", async (req, res) => {
   }
 });
 
-app.get("/", (req, res) => {
-  res.send(`Up on ${port} !!!`);
-});
-
 app.listen(port, () => {
   console.log("listening");
 });
