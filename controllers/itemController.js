@@ -20,4 +20,19 @@ const postItemController = async (req, res) => {
   }
 };
 
-module.exports = { getItemController, postItemController };
+const getItemByIdController = async (req, res) => {
+  const id = req.params.id;
+  console.log(id);
+  try {
+    const item = await Item.findById(id);
+    res.status(200).send(item);
+  } catch (error) {
+    res.status(404).send(error);
+  }
+};
+
+module.exports = {
+  getItemController,
+  postItemController,
+  getItemByIdController,
+};
