@@ -1,16 +1,19 @@
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  UploadOutlined,
+  HomeOutlined,
+  UnorderedListOutlined,
+  CopyOutlined,
+  LogoutOutlined,
   UserOutlined,
-  VideoCameraOutlined,
 } from "@ant-design/icons";
 import { Layout, Menu } from "antd";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "../styles/DefaultLayout.css";
 const { Header, Sider, Content } = Layout;
 
-const DefaultLayout = () => {
+const DefaultLayout = (props) => {
   const [collapsed, setCollapsed] = useState(false);
   return (
     <Layout>
@@ -21,25 +24,36 @@ const DefaultLayout = () => {
         <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={["1"]}
-          items={[
-            {
-              key: "1",
-              icon: <UserOutlined />,
-              label: "nav 1",
-            },
-            {
-              key: "2",
-              icon: <VideoCameraOutlined />,
-              label: "nav 2",
-            },
-            {
-              key: "3",
-              icon: <UploadOutlined />,
-              label: "nav 3",
-            },
-          ]}
-        />
+          defaultSelectedKeys={[window.location.pathname]}
+        >
+          <Menu.Item key={"/"} icon={<HomeOutlined />} label={"Home"}>
+            <Link to={"/"}>Home</Link>
+          </Menu.Item>
+
+          <Menu.Item
+            key={"/items"}
+            icon={<UnorderedListOutlined />}
+            label={"Items"}
+          >
+            <Link to={"/items"}>Items</Link>
+          </Menu.Item>
+
+          <Menu.Item
+            key={"/customers"}
+            icon={<UserOutlined />}
+            label={"Customers"}
+          >
+            <Link to={"/customers"}>Customers</Link>
+          </Menu.Item>
+
+          <Menu.Item key={"/bills"} icon={<CopyOutlined />} label={"Bills"}>
+            <Link to={"/bills"}>Bills</Link>
+          </Menu.Item>
+
+          <Menu.Item key={"/logout"} icon={<LogoutOutlined />} label={"Logout"}>
+            <Link to={"/items"}>Logout</Link>
+          </Menu.Item>
+        </Menu>
       </Sider>
       <Layout className="site-layout">
         <Header
@@ -64,7 +78,7 @@ const DefaultLayout = () => {
             minHeight: 280,
           }}
         >
-          Content
+          {props.children}
         </Content>
       </Layout>
     </Layout>
