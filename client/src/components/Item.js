@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "antd";
+import { Button, Card } from "antd";
 const { Meta } = Card;
 const Item = ({ item }) => {
   return (
@@ -14,6 +14,9 @@ const Item = ({ item }) => {
       }
     >
       <Meta title={item.name} description="www.instagram.com" />
+      <div className="item-button">
+        <Button>Add to Cart</Button>
+      </div>
     </Card>
   );
 };

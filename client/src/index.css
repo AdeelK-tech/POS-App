@@ -2,3 +2,9 @@
 body {
   font-family: "Sora", sans-serif;
 }
+.item-button button {
+  margin-top: 10px;
+  width: 150px;
+  background-color: #001529;
+  color: white;
+}

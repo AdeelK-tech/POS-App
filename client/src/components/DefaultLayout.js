@@ -11,6 +11,7 @@ import { Layout, Menu } from "antd";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/DefaultLayout.css";
+import { useSelector } from "react-redux";
 const { Header, Sider, Content } = Layout;
 
 const DefaultLayout = (props) => {
