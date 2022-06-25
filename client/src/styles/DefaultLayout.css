@@ -31,3 +31,18 @@
   align-items: center;
   margin-left: 5px;
 }
+.ant-layout-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 0;
+}
+.cart-Items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+.cart-Items p {
+  margin-top: 12px;
+}

@@ -6,6 +6,7 @@ import {
   CopyOutlined,
   LogoutOutlined,
   UserOutlined,
+  ShoppingCartOutlined,
 } from "@ant-design/icons";
 import { Layout, Menu } from "antd";
 import React, { useState } from "react";
@@ -16,6 +17,7 @@ const { Header, Sider, Content } = Layout;
 
 const DefaultLayout = (props) => {
   const [collapsed, setCollapsed] = useState(false);
+  const { cartItems } = useSelector((state) => state.rootReducer);
   return (
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
@@ -70,6 +72,10 @@ const DefaultLayout = (props) => {
               onClick: () => setCollapsed(!collapsed),
             }
           )}
+          <div className="cart-Items">
+            <p>{cartItems.length}</p>
+            <ShoppingCartOutlined />
+          </div>
         </Header>
         <Content
           className="site-layout-background"
