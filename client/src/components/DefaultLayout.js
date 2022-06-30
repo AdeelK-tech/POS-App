@@ -17,7 +17,8 @@ const { Header, Sider, Content } = Layout;
 
 const DefaultLayout = (props) => {
   const [collapsed, setCollapsed] = useState(false);
-  const { cartItems } = useSelector((state) => state.rootReducer);
+  const cartItems = useSelector((state) => state.cart.items);
+  console.log(cartItems);
   return (
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>

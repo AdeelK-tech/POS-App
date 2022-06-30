@@ -8,8 +8,8 @@ const finalReducer = combineReducers({
 });
 const initialState = {
   rootReducer: {
-    cartItems: localStorage.getItem("cartTtems")
-      ? JSON.parse(localStorage.getItem("cartTtems"))
+    cartItems: localStorage.getItem("cartItems")
+      ? JSON.parse(localStorage.getItem("cartItems"))
       : [],
   },
 };
