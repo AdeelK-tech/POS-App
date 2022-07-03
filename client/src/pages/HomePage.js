@@ -7,6 +7,7 @@ const HomePage = () => {
   const [items, setItems] = useState([]);
   const getItems = async () => {
     const Items = await axios.get("/get-items");
+    console.log("asdddddddddddddddddddddddddddddddddddddddddddddddddddd");
     setItems(Items.data);
   };
   useEffect(() => {

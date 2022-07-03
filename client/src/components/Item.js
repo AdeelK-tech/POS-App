@@ -1,7 +1,15 @@
-import React from "react";
+import { React } from "react";
 import { Button, Card } from "antd";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { actions } from "../redux-store/cartItems-reducer";
 const { Meta } = Card;
 const Item = ({ item }) => {
+  const dispatch = useDispatch();
+  const addItemHandler = () => {
+    dispatch(actions.addItem({ ...item }));
+  };
+
   return (
     <Card
       hoverable
@@ -15,7 +23,7 @@ const Item = ({ item }) => {
     >
       <Meta title={item.name} description="www.instagram.com" />
       <div className="item-button">
-        <Button>Add to Cart</Button>
+        <Button onClick={addItemHandler}>Add to Cart</Button>
       </div>
     </Card>
   );
